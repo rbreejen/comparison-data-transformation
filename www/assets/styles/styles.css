@@ -1,0 +1,158 @@
+  .comparison {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 85%;
+    font-family: Karla, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin-left: auto;
+    margin-right: auto;
+    flex-wrap: wrap;
+  }
+
+  .comparison-header {
+    font-size: 11px;
+    position: sticky;
+    z-index: 2;
+    background-color: white;
+    flex-wrap: wrap;
+    /* min-width: 0; */
+  }
+
+  .comparison-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 0;
+    /* flex: 2; */
+  }
+
+  .comparison-tbl {
+    font-size: 10.5px;
+  }
+
+  /* .header {
+    border-bottom: 2px solid #555;
+  } */
+
+  .header:hover {
+    background-color: #eee;
+  }
+
+  .rt-td-inner {
+    padding: 1.5px 0px;
+  }
+
+  .rt-th-inner {
+    padding: 7px 0px !important;
+  }
+
+  .rt-th-content {
+    text-transform: uppercase;
+  }
+
+  .border-left {
+    border-left: 1px dashed #e6e6e6;
+  }
+
+  .c3 {
+    font-size: 10px !important;
+    display: block;
+    color: hsl(0, 0%, 25%);
+  }
+
+  .tag {
+    color: hsl(0, 0%, 40%);
+    font-size: 0.75rem;
+    border: 1px solid hsl(0, 0%, 75%);
+    border-radius: 2px;
+    text-transform: uppercase;
+  }
+
+  .rt-table {
+    overflow-y: visible !important;
+    overflow-x: visible !important;
+  }
+
+  .rt-thead {
+    top: 48px !important;
+  }
+
+  .header {
+    align-items: stretch;
+  }
+
+  #header01 {
+    top: 0;
+  }
+
+  .rt-text-content {
+    /* display: flex !important;
+    flex-direction: column; */
+    margin-top: 0;
+    margin-bottom: 0;
+    height: 100%;
+  }
+
+  .header-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .highlight-tag {
+    font-size: 0.75rem;
+    border: 1px solid hsl(0, 0%, 75%);
+    border-radius: 2px;
+    text-transform: uppercase;
+  }
+
+  .column-title {
+    margin-top: auto;
+    padding-top: 5px;
+    width:100%
+  }
+
+  .item-wrapper {
+    display: flex
+  }
+
+  .item-content-left {
+    width: 70%;
+    margin-left: 0;
+    margin-right: auto;
+  }
+
+  .item-content-right {
+    width: 29%;
+    margin-left: auto;
+    margin-right: 0;
+    margin-top: auto;
+    margin-bottom: auto;
+    text-align: right;
+  }
+
+  .item-title {
+    padding-top: 14px;
+    font-size: 14px;
+    font-weight: 600;
+    color: rgb(36, 36, 76)
+  }
+
+  .rt-tr-group {
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .item-content-left {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  body {
+    margin:0;
+  }
+
+  p {
+    margin:0;
+    padding:0;
+  }

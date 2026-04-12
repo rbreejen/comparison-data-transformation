@@ -1,0 +1,84 @@
+item,description,is_advanced,dbt_core,sqlmesh,dbt_fusion,is_group_header,group_name
+col_group,,,Open-Source,Open-Source,Commercial,,
+col_label,,,dbt Core,SQLMesh,dbt Fusion,,
+col_logo_url,,,https://avatars.githubusercontent.com/u/53972171?s=64&v=4,https://avatars.githubusercontent.com/u/101943645?s=64&v=4,https://avatars.githubusercontent.com/u/53972171?s=64&v=4,,
+col_logo_w,,,40,40,40,,
+col_logo_h,,,40,40,40,,
+col_label_style,,,,,,,
+col_highlight,,,Most popular,Best OSS value,Fastest parsing,,
+<div class = 'item-title' id='key-facts'>Key facts</div>,,FALSE,,,,TRUE,key-facts
+<b>Homepage</b>,,FALSE,[Homepage >>](https://github.com/dbt-labs/dbt-core),[Homepage >>](https://sqlmesh.com/),[Homepage >>](https://docs.getdbt.com/docs/fusion/about-fusion),FALSE,key-facts
+<b>Pricing</b>,,FALSE,Free,Free; Tobiko Cloud optional,Free engine; dbt Cloud from $100/dev/mo,FALSE,key-facts
+<b>Release notes</b>,,FALSE,[Release notes](https://github.com/dbt-labs/dbt-core/releases),[Release notes](https://github.com/TobikoData/sqlmesh/releases),[Release notes](https://docs.getdbt.com/docs/dbt-versions/core-upgrade),FALSE,key-facts
+<b>Blog</b>,,FALSE,[Blog](https://www.getdbt.com/blog),[Blog](https://tobikodata.com/blog/),[Blog](https://www.getdbt.com/blog),FALSE,key-facts
+<b>License</b>,,FALSE,Apache 2.0,Apache 2.0,ELv2 (source-available; not OSI-approved),FALSE,key-facts
+<b>Deployment</b>,,FALSE,Self-hosted,Self-hosted / SaaS (Tobiko Cloud optional),Self-hosted / SaaS (dbt Cloud recommended),FALSE,key-facts
+<b>Implementation language</b>,,FALSE,Python,Python,Rust (engine) + Python (CLI),FALSE,key-facts
+<b>Backing company</b>,,FALSE,dbt Labs,Tobiko Data,dbt Labs,FALSE,key-facts
+<div class = 'item-title' id='core-architecture'>Core architecture</div>,,FALSE,,,,TRUE,core-architecture
+<b>Model definition</b>,,FALSE,SQL + Jinja2 templating,SQL (natively parsed) or Python; macro system,SQL + Jinja2 (compiled by Fusion engine),FALSE,core-architecture
+<b>Warehouse adapters</b>,,FALSE,[50+ adapters](https://docs.getdbt.com/docs/connect-adapters) (verified; trusted; community),[10+ engines](https://sqlmesh.readthedocs.io/en/stable/integrations/) (Snowflake; BigQuery; Databricks; DuckDB; Spark; Trino),Same as dbt Core adapters (Fusion accelerates execution),FALSE,core-architecture
+<b>Universal SQL transpilation</b>,<p><span class='c3'>(write SQL once; auto-transpile to any warehouse dialect)</span></p>,TRUE,:n:,[:y:<br>via SQLGlot](https://github.com/tobymao/sqlglot),:u:<br>Multi-dialect SQL understanding,FALSE,core-architecture
+<b>Compile-time SQL validation</b>,<p><span class='c3'>(SQL syntax errors caught before sending to the warehouse)</span></p>,FALSE,:n:<br>Errors caught at runtime,[:y:<br>SQLGlot parses SQL at compile time](https://sqlmesh.readthedocs.io/en/stable/),[:y:<br>SQL validated at compile time](https://docs.getdbt.com/docs/fusion/about-fusion),FALSE,core-architecture
+<b>Parse / compile speed</b>,,FALSE,Moderate (Python PartialParser),Fast (SQLGlot),Very fast (~30x vs dbt Core),FALSE,core-architecture
+<b>Config format</b>,,FALSE,YAML + SQL (Jinja-templated),SQL model files with inline config + YAML,Same as dbt Core,FALSE,core-architecture
+<div class = 'item-title' id='incremental-models'>Incremental models</div>,,FALSE,,,,TRUE,incremental-models
+<b>Append strategy</b>,,FALSE,:y:,:y:,:y:,FALSE,incremental-models
+<b>Merge / upsert strategy</b>,,FALSE,[:y:](https://docs.getdbt.com/docs/build/incremental-models#merge),[:y:](https://sqlmesh.readthedocs.io/en/stable/concepts/models/model_kinds/#incremental_by_unique_key),[:y:](https://docs.getdbt.com/docs/build/incremental-models#merge),FALSE,incremental-models
+<b>Insert overwrite (partition-level)</b>,,FALSE,:y:,:y:,:y:,FALSE,incremental-models
+<b>Delete + insert strategy</b>,,FALSE,:y:,:y:,:y:,FALSE,incremental-models
+<b>[Microbatch](https://docs.getdbt.com/docs/build/incremental-microbatch)</b>,<p><span class='c3'>(process data in sequential time windows to limit compute cost per run)</span></p>,FALSE,[:y:<br>dbt 1.9+](https://docs.getdbt.com/docs/build/incremental-microbatch),[:y:<br>INCREMENTAL_BY_TIME_RANGE](https://sqlmesh.readthedocs.io/en/stable/concepts/models/model_kinds/#incremental_by_time_range),[:y:](https://docs.getdbt.com/docs/build/incremental-microbatch),FALSE,incremental-models
+<b>Partition-aware processing</b>,<p><span class='c3'>(engine processes only affected partitions rather than full-table scans)</span></p>,TRUE,:u:<br>Via manual partition filters in SQL,:y:<br>Native partition-level execution,:u:<br>Via manual partition filters in SQL,FALSE,incremental-models
+<b>Incremental predicates</b>,<p><span class='c3'>(custom filters to further limit which rows are scanned during incremental runs)</span></p>,TRUE,[:y:](https://docs.getdbt.com/docs/build/incremental-models#about-incremental_predicates),:n:,[:y:](https://docs.getdbt.com/docs/build/incremental-models#about-incremental_predicates),FALSE,incremental-models
+<div class = 'item-title' id='testing'>Testing</div>,,FALSE,,,,TRUE,testing
+<b>Generic tests (not_null / unique / accepted_values / relationships)</b>,,FALSE,[:y:](https://docs.getdbt.com/docs/build/data-tests#generic-data-tests),[:y:](https://sqlmesh.readthedocs.io/en/stable/concepts/audits/),[:y:](https://docs.getdbt.com/docs/build/data-tests),FALSE,testing
+<b>Singular (custom SQL) tests</b>,,FALSE,[:y:](https://docs.getdbt.com/docs/build/data-tests#singular-data-tests),:y:,[:y:](https://docs.getdbt.com/docs/build/data-tests),FALSE,testing
+<b>Unit tests</b>,<p><span class='c3'>(mock input data and assert expected output; test logic without hitting the warehouse)</span></p>,FALSE,[:y:<br>dbt 1.8+](https://docs.getdbt.com/docs/build/unit-tests),[:y:](https://sqlmesh.readthedocs.io/en/stable/concepts/tests/),[:y:](https://docs.getdbt.com/docs/build/unit-tests),FALSE,testing
+<b>Model-level assertions</b>,<p><span class='c3'>(data quality checks embedded in the model definition; execute automatically after every run)</span></p>,FALSE,:n:,[:y:](https://sqlmesh.readthedocs.io/en/stable/concepts/audits/),:n:,FALSE,testing
+<b>Test result persistence</b>,<p><span class='c3'>(test results stored for auditing and historical trend analysis)</span></p>,TRUE,:u:<br>Via dbt Cloud,:n:,:u:<br>Via dbt Cloud,FALSE,testing
+<div class = 'item-title' id='environments'>Environments</div>,,FALSE,,,,TRUE,environments
+<b>Multi-environment support (dev / staging / prod)</b>,,FALSE,:u:<br>Via target profiles + dbt Cloud,[:y:<br>Native first-class environments](https://sqlmesh.readthedocs.io/en/stable/concepts/environments/),[:y:](https://docs.getdbt.com/docs/environments-in-dbt),FALSE,environments
+<b>Virtual data environments (zero-copy)</b>,<p><span class='c3'>(dev environments reuse prod data as virtual views without copying; no extra compute cost)</span></p>,FALSE,:n:,[:y:<br>Core feature; zero marginal cost](https://sqlmesh.readthedocs.io/en/stable/concepts/environments/),:u:<br>Via dbt Cloud (partial),FALSE,environments
+<b>Stateful environment management</b>,<p><span class='c3'>(tool tracks what changed since the last run to avoid re-running unchanged models)</span></p>,FALSE,:u:<br>Manifest-based; via dbt Cloud only,[:y:<br>Snapshot hashing; stateful by design](https://sqlmesh.readthedocs.io/en/stable/concepts/plans/),:y:<br>Fingerprint-based state tracking,FALSE,environments
+<b>Blue-green deployment</b>,<p><span class='c3'>(deploy new model versions with zero downtime via virtual view swaps)</span></p>,TRUE,:n:,[:y:<br>Virtual view swaps; zero downtime](https://sqlmesh.readthedocs.io/en/stable/concepts/environments/),:u:<br>Via dbt Cloud,FALSE,environments
+<div class = 'item-title' id='ci-cd'>CI / CD</div>,,FALSE,,,,TRUE,ci-cd
+<b>Slim CI (run only modified + downstream models)</b>,,FALSE,[:y:<br>--state + --defer flags](https://docs.getdbt.com/docs/deploy/slim-ci-jobs),:y:<br>Automatic via plan/apply workflow,[:y:<br>Enhanced data-aware version](https://docs.getdbt.com/docs/deploy/slim-ci-jobs),FALSE,ci-cd
+<b>Defer to production state</b>,<p><span class='c3'>(reference prod tables in dev without materializing all upstream models locally)</span></p>,FALSE,[:y:](https://docs.getdbt.com/reference/node-selection/defer),:y:<br>Via environment promotion,[:y:](https://docs.getdbt.com/reference/node-selection/defer),FALSE,ci-cd
+<b>PR preview environments</b>,,FALSE,:u:<br>Via dbt Cloud,[:y:<br>Lightweight virtual environments](https://sqlmesh.readthedocs.io/en/stable/concepts/environments/),:u:<br>Via dbt Cloud,FALSE,ci-cd
+<b>Plan / diff workflow</b>,<p><span class='c3'>(Terraform-style: inspect exactly what will change before applying it)</span></p>,FALSE,:n:,[:y:<br>sqlmesh plan then sqlmesh apply](https://sqlmesh.readthedocs.io/en/stable/concepts/plans/),:n:,FALSE,ci-cd
+<div class = 'item-title' id='lineage'>Lineage</div>,,FALSE,,,,TRUE,lineage
+<b>Table-level lineage</b>,,FALSE,:y:,:y:,:y:,FALSE,lineage
+<b>Column-level lineage</b>,,FALSE,:u:<br>dbt Cloud Enterprise only,[:y:<br>Built into web UI](https://sqlmesh.readthedocs.io/en/stable/),[:y:<br>Via dbt Platform](https://docs.getdbt.com/docs/explore/column-level-lineage),FALSE,lineage
+<b>End-to-end source lineage</b>,<p><span class='c3'>(lineage traced from raw sources all the way through to final output models)</span></p>,TRUE,:u:,:y:,:u:,FALSE,lineage
+<div class = 'item-title' id='python-models'>Python models</div>,,FALSE,,,,TRUE,python-models
+<b>Python model support</b>,,FALSE,[:y:<br>Snowflake; Databricks; BigQuery only](https://docs.getdbt.com/docs/build/python-models),[:y:<br>First-class; any platform](https://sqlmesh.readthedocs.io/en/latest/concepts/models/python_models/),[:y:<br>Same platforms as dbt Core](https://docs.getdbt.com/docs/build/python-models),FALSE,python-models
+<b>Pandas (single-node)</b>,,FALSE,:y:,:y:,:y:,FALSE,python-models
+<b>PySpark / distributed execution</b>,,FALSE,:y:<br>Databricks and Spark,:y:<br>Databricks; Spark,:y:<br>Databricks and Spark,FALSE,python-models
+<b>Snowpark (Snowflake)</b>,,FALSE,:y:,:y:,:y:,FALSE,python-models
+<b>BigFrames (BigQuery)</b>,,FALSE,:y:,:y:,:y:,FALSE,python-models
+<div class = 'item-title' id='semantic-layer'>Semantic layer</div>,,FALSE,,,,TRUE,semantic-layer
+<b>Built-in semantic / metrics layer</b>,,FALSE,[:y:<br>MetricFlow](https://docs.getdbt.com/docs/build/about-metricflow),:n:,[:y:<br>MetricFlow](https://docs.getdbt.com/docs/build/about-metricflow),FALSE,semantic-layer
+<b>YAML-based metric definitions</b>,,FALSE,:y:,:n:,:y:,FALSE,semantic-layer
+<b>Metric types (simple / ratio / cumulative / derived)</b>,,FALSE,:y:,:n:,:y:,FALSE,semantic-layer
+<b>Semantic models (business-level abstractions)</b>,,FALSE,:y:,:n:,:y:,FALSE,semantic-layer
+<div class = 'item-title' id='snapshots'>Snapshots / SCD</div>,,FALSE,,,,TRUE,snapshots
+<b>SCD Type 2 support</b>,,FALSE,[:y:](https://docs.getdbt.com/docs/build/snapshots),[:y:<br>SCD_TYPE_2 model kind](https://sqlmesh.readthedocs.io/en/stable/concepts/models/model_kinds/#scd_type_2),[:y:](https://docs.getdbt.com/docs/build/snapshots),FALSE,snapshots
+<b>Timestamp-based detection strategy</b>,,FALSE,:y:,:y:,:y:,FALSE,snapshots
+<b>Check-based detection strategy</b>,,FALSE,:y:,:y:<br>Column-based detection,:y:,FALSE,snapshots
+<b>Sequential batch processing for snapshots</b>,<p><span class='c3'>(process large snapshot backlogs in sequential time batches to avoid full-table memory pressure)</span></p>,TRUE,:n:,[:y:<br>batch_size parameter](https://sqlmesh.readthedocs.io/en/stable/concepts/models/model_kinds/),:n:,FALSE,snapshots
+<div class = 'item-title' id='orchestration'>Orchestration</div>,,FALSE,,,,TRUE,orchestration
+<b>Built-in scheduler</b>,,FALSE,:n:,[:y:<br>Native cron-based scheduler](https://sqlmesh.readthedocs.io/en/stable/concepts/scheduler/),:u:<br>Via dbt Cloud,FALSE,orchestration
+<b>State-aware run selection</b>,<p><span class='c3'>(automatically skip models that have not changed since the last successful run)</span></p>,FALSE,:u:<br>Via --state flag + manifest,:y:<br>Automatic via snapshot state,:y:<br>Fingerprint-based; automatic,FALSE,orchestration
+<b>[Airflow](https://astronomer.io/cosmos) integration</b>,,FALSE,[:y:<br>Cosmos; dbt-airflow operator](https://astronomer.io/cosmos),[:y:<br>Native DAG generator](https://sqlmesh.readthedocs.io/en/stable/integrations/airflow/),[:y:<br>Cosmos; dbt-airflow operator](https://astronomer.io/cosmos),FALSE,orchestration
+<b>Other orchestrators (Prefect / Dagster / Mage)</b>,,FALSE,:y:,:y:,:y:,FALSE,orchestration
+<div class = 'item-title' id='developer-experience'>Developer experience</div>,,FALSE,,,,TRUE,developer-experience
+<b>CLI</b>,,FALSE,:y:<br>Mature; full-featured,:y:,:y:<br>Rust-based; faster startup,FALSE,developer-experience
+<b>Web UI</b>,,FALSE,:n:,[:y:<br>Built-in browser UI](https://sqlmesh.readthedocs.io/en/stable/reference/ui/),:u:<br>Via dbt Cloud,FALSE,developer-experience
+<b>VS Code extension</b>,,FALSE,:u:<br>Community (dbt Power User),:u:<br>Official (preview stage),:y:<br>Official (Fusion-powered),FALSE,developer-experience
+<b>Language Server Protocol (LSP)</b>,<p><span class='c3'>(inline error highlighting; hover info; autocomplete directly in the editor)</span></p>,TRUE,:n:,:u:<br>Via VS Code extension,[:y:<br>Hover info; live CTE previews; error highlighting](https://docs.getdbt.com/docs/fusion/about-fusion),FALSE,developer-experience
+<b>Error detection timing</b>,,FALSE,Runtime (errors at warehouse execution time),Compile-time (SQLGlot parses before execution),Compile-time (SQL validated before execution),FALSE,developer-experience
+<div class = 'item-title' id='ecosystem'>Community and ecosystem</div>,,FALSE,,,,TRUE,ecosystem
+<b>Community size</b>,,FALSE,Very large (mature),Smaller; rapidly growing,Growing (same base as dbt Core),FALSE,ecosystem
+<b>Package ecosystem</b>,,FALSE,[1000+ packages](https://hub.getdbt.com/),:u:<br>Limited; growing,[Same as dbt Core](https://hub.getdbt.com/),FALSE,ecosystem
+<b>Hiring pool</b>,,FALSE,Large; mature,Emerging,Large (same as dbt Core),FALSE,ecosystem
+<b>Documentation quality</b>,,FALSE,Excellent; extensive courses and guides,Good; fewer third-party resources,Growing; inherits from dbt Core base,FALSE,ecosystem
